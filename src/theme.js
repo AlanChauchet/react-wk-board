@@ -36,7 +36,7 @@ export default createMuiTheme({
       light: COLOR_RED_LIGHT,
     },
     background: {
-      default: '#FFFFFF',
+      default: '#fafafd',
     },
     text: {
       primary: '#515166',

@@ -9,5 +9,8 @@ export default (theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  content: {
+    marginTop: theme.mixins.toolbar.minHeight,
   }
 });

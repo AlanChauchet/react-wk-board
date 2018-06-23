@@ -9,6 +9,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 
 import styles from './style';
 import BoardHeader from '../../components/BoardHeader';
+import Lists from '../../containers/Lists';
 import type { Board } from '../../types/Board';
 import type { List } from '../../types/List';
 
@@ -16,23 +17,30 @@ type Props = {
   classes: any,
   boardId: string,
   board?: Board,
-  lists: List[],
+  lists?: List[],
 };
 
 class BoardPage extends PureComponent<Props> {
+  renderLoading = () => (
+    <div className={this.props.classes.loadingContainer}>
+      <CircularProgress />
+    </div>
+  );
+
   render() {
-    const { classes, board } = this.props;
+    const { classes, board, lists } = this.props;
+
     const isBoardLoaded = isLoaded(this.props.board);
+    const isListLoaded = isLoaded(this.props.lists);
 
     return isBoardLoaded ? (
       <div>
         <BoardHeader board={board}/>
+        <div className={classes.content}>
+          {isListLoaded ? <Lists lists={lists}/> : this.renderLoading()}
+        </div>
       </div>
-    ) : (
-      <div className={classes.loadingContainer}>
-        <CircularProgress className={classes.loader} />
-      </div>
-    );
+    ) : this.renderLoading();
   }
 }
 
@@ -43,12 +51,12 @@ export default compose(
     doc: props.boardId,
   }, {
     collection: 'lists',
+    storeAs: `lists_${props.boardId}`,
     orderBy: 'order',
     where: ['boardId', '==', props.boardId],
-    storeAs: `lists_${props.boardId}`
   }]),
   connect((state, props) => ({
     board: state.firestore.data.boards && state.firestore.data.boards[props.boardId],
-    lists: state.firestore.ordered[`lists_${props.boardId}`] || []
+    lists: state.firestore.ordered[`lists_${props.boardId}`],
   }))
 )(BoardPage);
