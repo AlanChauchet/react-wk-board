@@ -20,16 +20,13 @@ class Header extends PureComponent<Props> {
     const { classes } = this.props;
 
     return (
-      <AppBar
-        className={classes.appBar}
-      >
+      <AppBar className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
           <ButtonBase component={Link} to="/" className={classes.headerLogo}>
-            <img src={Logo} alt="WK" className={classes.logo}/>
-            <Typography className={classes.appName}>
-              Welcome Kit
-            </Typography>
+            <img src={Logo} alt="WK" className={classes.logo} />
+            <Typography className={classes.appName}>Welcome Kit</Typography>
           </ButtonBase>
+          <ButtonBase component="div" className={classes.navIcon} />
         </Toolbar>
       </AppBar>
     );

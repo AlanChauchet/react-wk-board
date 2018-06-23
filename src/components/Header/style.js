@@ -28,8 +28,8 @@ export default (theme: Theme) => ({
       '& $appName': {
         width: 100,
         opacity: 1,
-      }
-    }
+      },
+    },
   },
   logo: {
     verticalAlign: 'top',
@@ -46,7 +46,37 @@ export default (theme: Theme) => ({
     overflow: 'hidden',
     width: 0,
     opacity: 0,
-    transition: theme.transitions.create(['width', 'opacity'], { duration: '0.2s' }),
+    transition: theme.transitions.create(['width', 'opacity'], {
+      duration: '0.2s',
+    }),
     whiteSpace: 'nowrap',
-  }
+  },
+  navIcon: {
+    width: 27,
+    height: 23,
+    margin: [0, 11],
+    position: 'relative',
+    '&:before, &:after': {
+      position: 'absolute',
+      content: '""',
+      display: 'block',
+    },
+    '&:before': {
+      top: 0,
+      left: 0,
+      bottom: 0,
+      width: '100%',
+      borderTop: '3px solid #ffffff',
+      borderBottom: '3px solid #ffffff',
+    },
+    '&:after': {
+      top: '50%',
+      left: 0,
+      width: 'calc(100% - 6px)',
+      height: 3,
+      background: '#ffffff',
+      marginTop: -2,
+      transform: 'translateX(6px)',
+    },
+  },
 });
