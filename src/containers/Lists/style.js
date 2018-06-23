@@ -14,6 +14,8 @@ export default (theme: Theme) => ({
   },
   content: {
     padding: theme.spacing.unit * 6,
+    maxWidth: '100vw',
+    overflowX: 'auto',
   },
   board: {
     marginLeft: theme.spacing.unit * -3,
