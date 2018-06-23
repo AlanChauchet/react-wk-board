@@ -13,9 +13,10 @@ export default (theme: Theme) => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
     marginTop: theme.mixins.toolbar.minHeight,
+    minHeight: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     maxHeight: `calc(100vh - ${theme.mixins.toolbar.minHeight}px)`,
     overflow: 'auto',
+    position: 'relative',
   },
 });

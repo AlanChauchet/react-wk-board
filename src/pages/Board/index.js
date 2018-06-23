@@ -8,6 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import styles from './style';
+import BoardHeader from '../../components/BoardHeader';
 import type { Board } from '../../types/Board';
 import type { List } from '../../types/List';
 
@@ -20,12 +21,12 @@ type Props = {
 
 class BoardPage extends PureComponent<Props> {
   render() {
-    const { classes } = this.props;
-    const isBoardLoading = isLoaded(this.props.board);
+    const { classes, board } = this.props;
+    const isBoardLoaded = isLoaded(this.props.board);
 
-    return isBoardLoading ? (
+    return isBoardLoaded ? (
       <div>
-        boards
+        <BoardHeader board={board}/>
       </div>
     ) : (
       <div className={classes.loadingContainer}>

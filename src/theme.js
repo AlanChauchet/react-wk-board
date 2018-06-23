@@ -28,6 +28,7 @@ export default createMuiTheme({
     secondary: {
       main: COLOR_BLUE,
       light: COLOR_BLUE_LIGHT,
+      dark: '#1b3360',
       contrastText: 'white',
     },
     error: {
