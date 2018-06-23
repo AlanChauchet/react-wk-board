@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a button which can load: loading state 1`] = `
+<WithStyles(_ButtonWithLoader)
+  loading={true}
+>
+  <_ButtonWithLoader
+    classes={
+      Object {
+        "buttonProgress": "_ButtonWithLoader-buttonProgress-2",
+        "wrapper": "_ButtonWithLoader-wrapper-1",
+      }
+    }
+    loading={true}
+  >
+    <div
+      className="_ButtonWithLoader-wrapper-1"
+    >
+      <WithStyles(Button)
+        disabled={true}
+      >
+        <Button
+          classes={
+            Object {
+              "colorInherit": "MuiButton-colorInherit-8",
+              "disabled": "MuiButton-disabled-13",
+              "fab": "MuiButton-fab-14",
+              "flatPrimary": "MuiButton-flatPrimary-5",
+              "flatSecondary": "MuiButton-flatSecondary-6",
+              "focusVisible": "MuiButton-focusVisible-12",
+              "fullWidth": "MuiButton-fullWidth-18",
+              "label": "MuiButton-label-4",
+              "mini": "MuiButton-mini-15",
+              "outlined": "MuiButton-outlined-7",
+              "raised": "MuiButton-raised-9",
+              "raisedPrimary": "MuiButton-raisedPrimary-10",
+              "raisedSecondary": "MuiButton-raisedSecondary-11",
+              "root": "MuiButton-root-3",
+              "sizeLarge": "MuiButton-sizeLarge-17",
+              "sizeSmall": "MuiButton-sizeSmall-16",
+            }
+          }
+          color="default"
+          disableFocusRipple={false}
+          disabled={true}
+          fullWidth={false}
+          mini={false}
+          size="medium"
+          type="button"
+          variant="flat"
+        >
+          <WithStyles(ButtonBase)
+            className="MuiButton-root-3 MuiButton-disabled-13"
+            disabled={true}
+            focusRipple={true}
+            focusVisibleClassName="MuiButton-focusVisible-12"
+            type="button"
+          >
+            <ButtonBase
+              centerRipple={false}
+              className="MuiButton-root-3 MuiButton-disabled-13"
+              classes={
+                Object {
+                  "disabled": "MuiButtonBase-disabled-20",
+                  "focusVisible": "MuiButtonBase-focusVisible-21",
+                  "root": "MuiButtonBase-root-19",
+                }
+              }
+              disableRipple={false}
+              disabled={true}
+              focusRipple={true}
+              focusVisibleClassName="MuiButton-focusVisible-12"
+              tabIndex="0"
+              type="button"
+            >
+              <button
+                className="MuiButtonBase-root-19 MuiButtonBase-disabled-20 MuiButton-root-3 MuiButton-disabled-13"
+                disabled={true}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex="-1"
+                type="button"
+              >
+                <span
+                  className="MuiButton-label-4"
+                />
+              </button>
+            </ButtonBase>
+          </WithStyles(ButtonBase)>
+        </Button>
+      </WithStyles(Button)>
+      <WithStyles(CircularProgress)
+        className="_ButtonWithLoader-buttonProgress-2"
+        size={24}
+      >
+        <CircularProgress
+          className="_ButtonWithLoader-buttonProgress-2"
+          classes={
+            Object {
+              "circle": "MuiCircularProgress-circle-35",
+              "circleIndeterminate": "MuiCircularProgress-circleIndeterminate-37",
+              "circleStatic": "MuiCircularProgress-circleStatic-36",
+              "colorPrimary": "MuiCircularProgress-colorPrimary-32",
+              "colorSecondary": "MuiCircularProgress-colorSecondary-33",
+              "indeterminate": "MuiCircularProgress-indeterminate-31",
+              "root": "MuiCircularProgress-root-29",
+              "static": "MuiCircularProgress-static-30",
+              "svg": "MuiCircularProgress-svg-34",
+            }
+          }
+          color="primary"
+          size={24}
+          thickness={3.6}
+          value={0}
+          variant="indeterminate"
+        >
+          <div
+            className="MuiCircularProgress-root-29 MuiCircularProgress-colorPrimary-32 MuiCircularProgress-indeterminate-31 _ButtonWithLoader-buttonProgress-2"
+            role="progressbar"
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          >
+            <svg
+              className="MuiCircularProgress-svg-34"
+              viewBox="0 0 50 50"
+            >
+              <circle
+                className="MuiCircularProgress-circle-35 MuiCircularProgress-circleIndeterminate-37"
+                cx={25}
+                cy={25}
+                fill="none"
+                r={20}
+                strokeWidth={3.6}
+                style={Object {}}
+              />
+            </svg>
+          </div>
+        </CircularProgress>
+      </WithStyles(CircularProgress)>
+    </div>
+  </_ButtonWithLoader>
+</WithStyles(_ButtonWithLoader)>
+`;
+
+exports[`renders a button which can load: not loading state 1`] = `
+<WithStyles(_ButtonWithLoader)
+  loading={false}
+>
+  <_ButtonWithLoader
+    classes={
+      Object {
+        "buttonProgress": "_ButtonWithLoader-buttonProgress-2",
+        "wrapper": "_ButtonWithLoader-wrapper-1",
+      }
+    }
+    loading={false}
+  >
+    <div
+      className="_ButtonWithLoader-wrapper-1"
+    >
+      <WithStyles(Button)
+        disabled={false}
+      >
+        <Button
+          classes={
+            Object {
+              "colorInherit": "MuiButton-colorInherit-8",
+              "disabled": "MuiButton-disabled-13",
+              "fab": "MuiButton-fab-14",
+              "flatPrimary": "MuiButton-flatPrimary-5",
+              "flatSecondary": "MuiButton-flatSecondary-6",
+              "focusVisible": "MuiButton-focusVisible-12",
+              "fullWidth": "MuiButton-fullWidth-18",
+              "label": "MuiButton-label-4",
+              "mini": "MuiButton-mini-15",
+              "outlined": "MuiButton-outlined-7",
+              "raised": "MuiButton-raised-9",
+              "raisedPrimary": "MuiButton-raisedPrimary-10",
+              "raisedSecondary": "MuiButton-raisedSecondary-11",
+              "root": "MuiButton-root-3",
+              "sizeLarge": "MuiButton-sizeLarge-17",
+              "sizeSmall": "MuiButton-sizeSmall-16",
+            }
+          }
+          color="default"
+          disableFocusRipple={false}
+          disabled={false}
+          fullWidth={false}
+          mini={false}
+          size="medium"
+          type="button"
+          variant="flat"
+        >
+          <WithStyles(ButtonBase)
+            className="MuiButton-root-3"
+            disabled={false}
+            focusRipple={true}
+            focusVisibleClassName="MuiButton-focusVisible-12"
+            type="button"
+          >
+            <ButtonBase
+              centerRipple={false}
+              className="MuiButton-root-3"
+              classes={
+                Object {
+                  "disabled": "MuiButtonBase-disabled-20",
+                  "focusVisible": "MuiButtonBase-focusVisible-21",
+                  "root": "MuiButtonBase-root-19",
+                }
+              }
+              disableRipple={false}
+              disabled={false}
+              focusRipple={true}
+              focusVisibleClassName="MuiButton-focusVisible-12"
+              tabIndex="0"
+              type="button"
+            >
+              <button
+                className="MuiButtonBase-root-19 MuiButton-root-3"
+                disabled={false}
+                onBlur={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseLeave={[Function]}
+                onMouseUp={[Function]}
+                onTouchEnd={[Function]}
+                onTouchMove={[Function]}
+                onTouchStart={[Function]}
+                tabIndex="0"
+                type="button"
+              >
+                <span
+                  className="MuiButton-label-4"
+                >
+                  Test
+                </span>
+                <WithStyles(TouchRipple)
+                  center={false}
+                  innerRef={[Function]}
+                >
+                  <TouchRipple
+                    center={false}
+                    classes={
+                      Object {
+                        "child": "MuiTouchRipple-child-26",
+                        "childLeaving": "MuiTouchRipple-childLeaving-27",
+                        "childPulsate": "MuiTouchRipple-childPulsate-28",
+                        "ripple": "MuiTouchRipple-ripple-23",
+                        "ripplePulsate": "MuiTouchRipple-ripplePulsate-25",
+                        "rippleVisible": "MuiTouchRipple-rippleVisible-24",
+                        "root": "MuiTouchRipple-root-22",
+                      }
+                    }
+                  >
+                    <TransitionGroup
+                      childFactory={[Function]}
+                      className="MuiTouchRipple-root-22"
+                      component="span"
+                      enter={true}
+                      exit={true}
+                    >
+                      <span
+                        className="MuiTouchRipple-root-22"
+                      />
+                    </TransitionGroup>
+                  </TouchRipple>
+                </WithStyles(TouchRipple)>
+              </button>
+            </ButtonBase>
+          </WithStyles(ButtonBase)>
+        </Button>
+      </WithStyles(Button)>
+    </div>
+  </_ButtonWithLoader>
+</WithStyles(_ButtonWithLoader)>
+`;
