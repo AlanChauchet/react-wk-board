@@ -9,6 +9,7 @@ export type Item = {
   nbLikes: number,
   nbMessages: number,
   nbEmails: number,
+  notificationsEnabled: boolean,
   rate: number,
   order: number,
   createdAt: number,

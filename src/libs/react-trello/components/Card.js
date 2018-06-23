@@ -78,7 +78,11 @@ class Card extends Component {
                   ...dragStyle,
                   ...style,
                 }}
-                className={cx(CardWrapper, extraClasses.card)}
+                className={cx(
+                  CardWrapper,
+                  extraClasses.card,
+                  !!dragSnapshot.isDragging && extraClasses.cardDragging
+                )}
               >
                 {this.renderBody()}
               </div>

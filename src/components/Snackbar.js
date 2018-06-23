@@ -1,13 +1,14 @@
 // @flow
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import MaterialSnackbar from '@material-ui/core/Snackbar';
 import { withTheme } from '@material-ui/core/styles';
 
-import type { ReduxState } from '../types/Redux';
+import { Creators as SnackbarCreators } from '../actions/snackbar';
+import type { Dispatch, ReduxState } from '../types/Redux';
 
 type Props = {
   snackbar: any,
@@ -18,20 +19,18 @@ type State = {
   theme: any,
 };
 
-class _Snackbar extends PureComponent<Props, State> {
+class _Snackbar extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = {
       open: !!this.props.snackbar.message,
     };
-
-    this.handleClose = this.handleClose.bind(this);
   }
 
-  handleClose() {
-    this.setState({ open: false });
-  }
+  handleClose = () => {
+    this.setState({ open: false }, this.props.resetMessage);
+  };
 
   static getDerivedStateFromProps(nextProps: Props, prevState: State) {
     if (prevState.open !== !!nextProps.snackbar.message) {
@@ -64,7 +63,7 @@ class _Snackbar extends PureComponent<Props, State> {
         open={open}
         autoHideDuration={duration}
         onClose={this.handleClose}
-        SnackbarContentProps={{
+        ContentProps={{
           'aria-describedby': 'message-id',
           style: {
             color,
@@ -93,7 +92,11 @@ const mapStateToProps = (state: ReduxState) => ({
   snackbar: state.snackbar,
 });
 
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+  resetMessage: () => dispatch(SnackbarCreators.show({ message: null })),
+});
+
 export const Snackbar = connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(withTheme()(_Snackbar));

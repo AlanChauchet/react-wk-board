@@ -9,11 +9,15 @@ import Grid from '@material-ui/core/es/Grid/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import styles from './style';
+import AddFormModal from '../../components/AddFormModal';
 import Board from '../../libs/react-trello/components/Board';
 import CustomLaneHeader from '../../components/List/CustomLaneHeader';
 import CustomCard from '../../components/List/CustomCard';
+import FixedAddButton from '../../components/FixedAddButton';
+import { Creators as SnackbarCreators } from '../../actions/snackbar';
 import type { List } from '../../types/List';
 import type { Item } from '../../types/Item';
+import type { Dispatch } from '../../types/Redux';
 
 type Props = {
   classes: any,
@@ -23,13 +27,21 @@ type Props = {
   },
 };
 
-class Lists extends PureComponent<Props> {
+type State = {
+  addFormOpen: boolean,
+};
+
+class Lists extends PureComponent<Props, State> {
+  state: State = {
+    addFormOpen: false,
+  };
+
   _formatItem = (item: Item) => {
     return {
       item,
+      onBellTapped: () => this.onBellTapped(item),
       title: item.name,
       id: item.id,
-      classes: this.props.classes,
     };
   };
 
@@ -43,21 +55,66 @@ class Lists extends PureComponent<Props> {
         cards: itemsByList[list.id].map(this._formatItem),
         nbResults: itemsByList[list.id].length,
         loading: !isLoaded(itemsByList[list.id]),
-      }))
+      })),
     };
   };
 
-  handleDrag = (cardId: string, sourceLaneId: string, targetLaneId: string) => {
+  openAddForm = () => this.setState({ addFormOpen: true });
+  closeAddForm = () => this.setState({ addFormOpen: false });
+
+  createItem = (item: Partial<Item>) => {
+    const { lists, itemsByList, firestore } = this.props;
+
+    return (
+      lists.length &&
+      firestore
+        .add(
+          { collection: 'items' },
+          {
+            ...item,
+            nbMessages: 0,
+            nbLikes: 0,
+            nbEmails: 0,
+            listId: this.props.lists[0].id,
+            notificationsEnabled: true,
+            order: itemsByList[this.props.lists[0].id].length + 1,
+            createdAt: firestore.FieldValue.serverTimestamp(),
+          }
+        )
+        .then(this.closeAddForm)
+        .then(() => this.props.showMessage('Item added'))
+    );
+  };
+
+  onBellTapped = (item: Item) => {
+    const { firestore } = this.props;
+
+    firestore.update(
+      { collection: 'items', doc: item.id },
+      {
+        notificationsEnabled: !item.notificationsEnabled,
+        updatedAt: firestore.FieldValue.serverTimestamp(),
+      }
+    );
+  };
+
+  handleDrag = (
+    cardId: string,
+    sourceLaneId: string,
+    targetLaneId: string,
+    order: number
+  ) => {
     const { firestore } = this.props;
 
     if (sourceLaneId !== targetLaneId) {
-      console.log('need update');
-      const itemUpdates =  {
-        listId: targetLaneId,
-        updatedAt: firestore.FieldValue.serverTimestamp(),
-      };
-
-      firestore.update({ collection: 'items', doc: cardId }, itemUpdates);
+      firestore.update(
+        { collection: 'items', doc: cardId },
+        {
+          listId: targetLaneId,
+          updatedAt: firestore.FieldValue.serverTimestamp(),
+          order: order + 1,
+        }
+      );
     }
   };
 
@@ -69,8 +126,11 @@ class Lists extends PureComponent<Props> {
 
   render() {
     const { classes, lists, itemsByList } = this.props;
+    const { addFormOpen } = this.state;
 
-    const areItemsLoaded = !lists.find(list => !isLoaded(itemsByList[list.id]));
+    const areItemsLoaded = !lists.find(
+      (list) => !isLoaded(itemsByList[list.id])
+    );
 
     return areItemsLoaded ? (
       <div className={classes.content}>
@@ -82,19 +142,32 @@ class Lists extends PureComponent<Props> {
               lane: classes.lane,
               laneDraggableZone: classes.laneDraggableZone,
               card: classes.card,
+              cardDragging: classes.cardDragging,
             }}
-            customLaneHeader={<CustomLaneHeader/>}
+            customLaneHeader={<CustomLaneHeader />}
             customLaneFooter={null}
             customCardLayout
             draggable
             onCardClick={() => 1}
             handleDragEnd={this.handleDrag}
           >
-            <CustomCard/>
+            <CustomCard />
           </Board>
         </Grid>
+        <FixedAddButton onClick={this.openAddForm} />
+        <AddFormModal
+          open={addFormOpen}
+          handleClose={this.closeAddForm}
+          onSubmit={this.createItem}
+          initialValues={{
+            avatar:
+              'https://st2.depositphotos.com/1007566/12304/v/950/depositphotos_123041468-stock-illustration-avatar-man-cartoon.jpg',
+          }}
+        />
       </div>
-    ) : this.renderLoading();
+    ) : (
+      this.renderLoading()
+    );
   }
 }
 
@@ -108,13 +181,19 @@ export default compose(
       where: ['listId', '==', list.id],
     }))
   ),
-  connect((state, props) => {
-    const itemsByList = {};
-    for (const list of props.lists) {
-      itemsByList[list.id] = state.firestore.ordered[`items_${list.id}`];
-    }
-    return {
-      itemsByList,
-    };
-  })
+  connect(
+    (state, props) => {
+      const itemsByList = {};
+      for (const list of props.lists) {
+        itemsByList[list.id] = state.firestore.ordered[`items_${list.id}`];
+      }
+      return {
+        itemsByList,
+      };
+    },
+    (dispatch: Dispatch) => ({
+      showMessage: (message: string) =>
+        dispatch(SnackbarCreators.show({ message })),
+    })
+  )
 )(Lists);
