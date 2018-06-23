@@ -22,59 +22,69 @@ exports[`renders a button which can load: loading state 1`] = `
         <Button
           classes={
             Object {
-              "colorInherit": "MuiButton-colorInherit-8",
-              "disabled": "MuiButton-disabled-13",
-              "fab": "MuiButton-fab-14",
-              "flatPrimary": "MuiButton-flatPrimary-5",
-              "flatSecondary": "MuiButton-flatSecondary-6",
-              "focusVisible": "MuiButton-focusVisible-12",
-              "fullWidth": "MuiButton-fullWidth-18",
+              "colorInherit": "MuiButton-colorInherit-11",
+              "contained": "MuiButton-contained-12",
+              "containedPrimary": "MuiButton-containedPrimary-13",
+              "containedSecondary": "MuiButton-containedSecondary-14",
+              "disabled": "MuiButton-disabled-19",
+              "fab": "MuiButton-fab-20",
+              "flat": "MuiButton-flat-7",
+              "flatPrimary": "MuiButton-flatPrimary-8",
+              "flatSecondary": "MuiButton-flatSecondary-9",
+              "focusVisible": "MuiButton-focusVisible-18",
+              "fullWidth": "MuiButton-fullWidth-24",
               "label": "MuiButton-label-4",
-              "mini": "MuiButton-mini-15",
-              "outlined": "MuiButton-outlined-7",
-              "raised": "MuiButton-raised-9",
-              "raisedPrimary": "MuiButton-raisedPrimary-10",
-              "raisedSecondary": "MuiButton-raisedSecondary-11",
+              "mini": "MuiButton-mini-21",
+              "outlined": "MuiButton-outlined-10",
+              "raised": "MuiButton-raised-15",
+              "raisedPrimary": "MuiButton-raisedPrimary-16",
+              "raisedSecondary": "MuiButton-raisedSecondary-17",
               "root": "MuiButton-root-3",
-              "sizeLarge": "MuiButton-sizeLarge-17",
-              "sizeSmall": "MuiButton-sizeSmall-16",
+              "sizeLarge": "MuiButton-sizeLarge-23",
+              "sizeSmall": "MuiButton-sizeSmall-22",
+              "textPrimary": "MuiButton-textPrimary-5",
+              "textSecondary": "MuiButton-textSecondary-6",
             }
           }
           color="default"
+          component="button"
           disableFocusRipple={false}
           disabled={true}
           fullWidth={false}
           mini={false}
           size="medium"
           type="button"
-          variant="flat"
+          variant="text"
         >
           <WithStyles(ButtonBase)
-            className="MuiButton-root-3 MuiButton-disabled-13"
+            className="MuiButton-root-3 MuiButton-flat-7 MuiButton-disabled-19"
+            component="button"
             disabled={true}
             focusRipple={true}
-            focusVisibleClassName="MuiButton-focusVisible-12"
+            focusVisibleClassName="MuiButton-focusVisible-18"
             type="button"
           >
             <ButtonBase
               centerRipple={false}
-              className="MuiButton-root-3 MuiButton-disabled-13"
+              className="MuiButton-root-3 MuiButton-flat-7 MuiButton-disabled-19"
               classes={
                 Object {
-                  "disabled": "MuiButtonBase-disabled-20",
-                  "focusVisible": "MuiButtonBase-focusVisible-21",
-                  "root": "MuiButtonBase-root-19",
+                  "disabled": "MuiButtonBase-disabled-26",
+                  "focusVisible": "MuiButtonBase-focusVisible-27",
+                  "root": "MuiButtonBase-root-25",
                 }
               }
+              component="button"
               disableRipple={false}
+              disableTouchRipple={false}
               disabled={true}
               focusRipple={true}
-              focusVisibleClassName="MuiButton-focusVisible-12"
+              focusVisibleClassName="MuiButton-focusVisible-18"
               tabIndex="0"
               type="button"
             >
               <button
-                className="MuiButtonBase-root-19 MuiButtonBase-disabled-20 MuiButton-root-3 MuiButton-disabled-13"
+                className="MuiButtonBase-root-25 MuiButtonBase-disabled-26 MuiButton-root-3 MuiButton-flat-7 MuiButton-disabled-19"
                 disabled={true}
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -105,15 +115,15 @@ exports[`renders a button which can load: loading state 1`] = `
           className="_ButtonWithLoader-buttonProgress-2"
           classes={
             Object {
-              "circle": "MuiCircularProgress-circle-35",
-              "circleIndeterminate": "MuiCircularProgress-circleIndeterminate-37",
-              "circleStatic": "MuiCircularProgress-circleStatic-36",
-              "colorPrimary": "MuiCircularProgress-colorPrimary-32",
-              "colorSecondary": "MuiCircularProgress-colorSecondary-33",
-              "indeterminate": "MuiCircularProgress-indeterminate-31",
-              "root": "MuiCircularProgress-root-29",
-              "static": "MuiCircularProgress-static-30",
-              "svg": "MuiCircularProgress-svg-34",
+              "circle": "MuiCircularProgress-circle-41",
+              "circleIndeterminate": "MuiCircularProgress-circleIndeterminate-43",
+              "circleStatic": "MuiCircularProgress-circleStatic-42",
+              "colorPrimary": "MuiCircularProgress-colorPrimary-38",
+              "colorSecondary": "MuiCircularProgress-colorSecondary-39",
+              "indeterminate": "MuiCircularProgress-indeterminate-37",
+              "root": "MuiCircularProgress-root-35",
+              "static": "MuiCircularProgress-static-36",
+              "svg": "MuiCircularProgress-svg-40",
             }
           }
           color="primary"
@@ -123,7 +133,7 @@ exports[`renders a button which can load: loading state 1`] = `
           variant="indeterminate"
         >
           <div
-            className="MuiCircularProgress-root-29 MuiCircularProgress-colorPrimary-32 MuiCircularProgress-indeterminate-31 _ButtonWithLoader-buttonProgress-2"
+            className="MuiCircularProgress-root-35 MuiCircularProgress-colorPrimary-38 MuiCircularProgress-indeterminate-37 _ButtonWithLoader-buttonProgress-2"
             role="progressbar"
             style={
               Object {
@@ -133,15 +143,15 @@ exports[`renders a button which can load: loading state 1`] = `
             }
           >
             <svg
-              className="MuiCircularProgress-svg-34"
-              viewBox="0 0 50 50"
+              className="MuiCircularProgress-svg-40"
+              viewBox="22 22 44 44"
             >
               <circle
-                className="MuiCircularProgress-circle-35 MuiCircularProgress-circleIndeterminate-37"
-                cx={25}
-                cy={25}
+                className="MuiCircularProgress-circle-41 MuiCircularProgress-circleIndeterminate-43"
+                cx={44}
+                cy={44}
                 fill="none"
-                r={20}
+                r={20.2}
                 strokeWidth={3.6}
                 style={Object {}}
               />
@@ -176,59 +186,69 @@ exports[`renders a button which can load: not loading state 1`] = `
         <Button
           classes={
             Object {
-              "colorInherit": "MuiButton-colorInherit-8",
-              "disabled": "MuiButton-disabled-13",
-              "fab": "MuiButton-fab-14",
-              "flatPrimary": "MuiButton-flatPrimary-5",
-              "flatSecondary": "MuiButton-flatSecondary-6",
-              "focusVisible": "MuiButton-focusVisible-12",
-              "fullWidth": "MuiButton-fullWidth-18",
+              "colorInherit": "MuiButton-colorInherit-11",
+              "contained": "MuiButton-contained-12",
+              "containedPrimary": "MuiButton-containedPrimary-13",
+              "containedSecondary": "MuiButton-containedSecondary-14",
+              "disabled": "MuiButton-disabled-19",
+              "fab": "MuiButton-fab-20",
+              "flat": "MuiButton-flat-7",
+              "flatPrimary": "MuiButton-flatPrimary-8",
+              "flatSecondary": "MuiButton-flatSecondary-9",
+              "focusVisible": "MuiButton-focusVisible-18",
+              "fullWidth": "MuiButton-fullWidth-24",
               "label": "MuiButton-label-4",
-              "mini": "MuiButton-mini-15",
-              "outlined": "MuiButton-outlined-7",
-              "raised": "MuiButton-raised-9",
-              "raisedPrimary": "MuiButton-raisedPrimary-10",
-              "raisedSecondary": "MuiButton-raisedSecondary-11",
+              "mini": "MuiButton-mini-21",
+              "outlined": "MuiButton-outlined-10",
+              "raised": "MuiButton-raised-15",
+              "raisedPrimary": "MuiButton-raisedPrimary-16",
+              "raisedSecondary": "MuiButton-raisedSecondary-17",
               "root": "MuiButton-root-3",
-              "sizeLarge": "MuiButton-sizeLarge-17",
-              "sizeSmall": "MuiButton-sizeSmall-16",
+              "sizeLarge": "MuiButton-sizeLarge-23",
+              "sizeSmall": "MuiButton-sizeSmall-22",
+              "textPrimary": "MuiButton-textPrimary-5",
+              "textSecondary": "MuiButton-textSecondary-6",
             }
           }
           color="default"
+          component="button"
           disableFocusRipple={false}
           disabled={false}
           fullWidth={false}
           mini={false}
           size="medium"
           type="button"
-          variant="flat"
+          variant="text"
         >
           <WithStyles(ButtonBase)
-            className="MuiButton-root-3"
+            className="MuiButton-root-3 MuiButton-flat-7"
+            component="button"
             disabled={false}
             focusRipple={true}
-            focusVisibleClassName="MuiButton-focusVisible-12"
+            focusVisibleClassName="MuiButton-focusVisible-18"
             type="button"
           >
             <ButtonBase
               centerRipple={false}
-              className="MuiButton-root-3"
+              className="MuiButton-root-3 MuiButton-flat-7"
               classes={
                 Object {
-                  "disabled": "MuiButtonBase-disabled-20",
-                  "focusVisible": "MuiButtonBase-focusVisible-21",
-                  "root": "MuiButtonBase-root-19",
+                  "disabled": "MuiButtonBase-disabled-26",
+                  "focusVisible": "MuiButtonBase-focusVisible-27",
+                  "root": "MuiButtonBase-root-25",
                 }
               }
+              component="button"
               disableRipple={false}
+              disableTouchRipple={false}
               disabled={false}
               focusRipple={true}
-              focusVisibleClassName="MuiButton-focusVisible-12"
+              focusVisibleClassName="MuiButton-focusVisible-18"
               tabIndex="0"
               type="button"
             >
               <button
-                className="MuiButtonBase-root-19 MuiButton-root-3"
+                className="MuiButtonBase-root-25 MuiButton-root-3 MuiButton-flat-7"
                 disabled={false}
                 onBlur={[Function]}
                 onFocus={[Function]}
@@ -256,25 +276,25 @@ exports[`renders a button which can load: not loading state 1`] = `
                     center={false}
                     classes={
                       Object {
-                        "child": "MuiTouchRipple-child-26",
-                        "childLeaving": "MuiTouchRipple-childLeaving-27",
-                        "childPulsate": "MuiTouchRipple-childPulsate-28",
-                        "ripple": "MuiTouchRipple-ripple-23",
-                        "ripplePulsate": "MuiTouchRipple-ripplePulsate-25",
-                        "rippleVisible": "MuiTouchRipple-rippleVisible-24",
-                        "root": "MuiTouchRipple-root-22",
+                        "child": "MuiTouchRipple-child-32",
+                        "childLeaving": "MuiTouchRipple-childLeaving-33",
+                        "childPulsate": "MuiTouchRipple-childPulsate-34",
+                        "ripple": "MuiTouchRipple-ripple-29",
+                        "ripplePulsate": "MuiTouchRipple-ripplePulsate-31",
+                        "rippleVisible": "MuiTouchRipple-rippleVisible-30",
+                        "root": "MuiTouchRipple-root-28",
                       }
                     }
                   >
                     <TransitionGroup
                       childFactory={[Function]}
-                      className="MuiTouchRipple-root-22"
+                      className="MuiTouchRipple-root-28"
                       component="span"
                       enter={true}
                       exit={true}
                     >
                       <span
-                        className="MuiTouchRipple-root-22"
+                        className="MuiTouchRipple-root-28"
                       />
                     </TransitionGroup>
                   </TouchRipple>

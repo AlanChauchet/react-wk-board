@@ -2,6 +2,16 @@
 
 export type FormState = {};
 
+export type SnackbarState = {
+  horizontal: string,
+  vertical: string,
+  closable: boolean,
+  duration?: number,
+  message?: string,
+  color?: string,
+  backgroundColor?: string,
+};
+
 export type ReduxState = {
   +form: FormState,
   +snackbar: SnackbarState,
