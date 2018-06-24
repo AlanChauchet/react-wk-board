@@ -7,6 +7,7 @@ import { firestoreConnect, isLoaded } from 'react-redux-firebase';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Grid from '@material-ui/core/es/Grid/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
+import findIndex from 'lodash/findIndex';
 
 import styles from './style';
 import AddFormModal from '../../components/AddFormModal';
@@ -98,15 +99,40 @@ class Lists extends PureComponent<Props, State> {
     );
   };
 
+  // Updates the order of the items within a list without updating the dropped item
+  updateItemsOrder = (skipItem: string, items: Item[], lane: Object) => {
+    const { firestore } = this.props;
+
+    for (const item of items) {
+      let index;
+      if (
+        item.id !== skipItem &&
+        (index = findIndex(lane.cards, { id: item.id })) > -1
+      ) {
+        if (item.order !== index + 1) {
+          firestore.update(
+            { collection: 'items', doc: item.id },
+            {
+              order: index + 1,
+            }
+          );
+        }
+      }
+    }
+  };
+
+  // Updates an item after it has been dropped within either a different list or a different order
   handleDrag = (
     cardId: string,
     sourceLaneId: string,
     targetLaneId: string,
-    order: number
+    order: number,
+    lanes: any[]
   ) => {
-    const { firestore } = this.props;
+    const { firestore, itemsByList } = this.props;
 
-    if (sourceLaneId !== targetLaneId) {
+    const item = itemsByList[sourceLaneId].find((item) => item.id === cardId);
+    if (sourceLaneId !== targetLaneId || (item && item.order !== order + 1)) {
       firestore.update(
         { collection: 'items', doc: cardId },
         {
@@ -115,6 +141,18 @@ class Lists extends PureComponent<Props, State> {
           order: order + 1,
         }
       );
+      this.updateItemsOrder(
+        cardId,
+        itemsByList[targetLaneId],
+        lanes.find((lane) => lane.id === targetLaneId)
+      );
+      if (sourceLaneId !== targetLaneId) {
+        this.updateItemsOrder(
+          cardId,
+          itemsByList[sourceLaneId],
+          lanes.find((lane) => lane.id === sourceLaneId)
+        );
+      }
     }
   };
 
@@ -150,6 +188,7 @@ class Lists extends PureComponent<Props, State> {
             draggable
             onCardClick={() => 1}
             handleDragEnd={this.handleDrag}
+            laneSortFunction={(a, b) => a.item.order - b.item.order}
           >
             <CustomCard />
           </Board>

@@ -91,7 +91,8 @@ export default class Board extends Component {
         draggableId,
         source.droppableId,
         destination.droppableId,
-        destination.index
+        destination.index,
+        this.state.lanes
       );
     }
   };

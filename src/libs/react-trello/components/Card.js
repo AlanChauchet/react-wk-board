@@ -34,6 +34,9 @@ class Card extends Component {
     backgroundColor: isDragging ? '#f0f0f0' : '#fff',
     ...draggableStyle,
     margin: '0px 0px 15px 0px',
+    transform:
+      draggableStyle.transform &&
+      `${draggableStyle.transform}${isDragging ? ` rotate(3deg)` : ''}`,
   });
 
   render() {

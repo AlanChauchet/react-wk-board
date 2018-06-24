@@ -32,7 +32,7 @@ class AddFormModal extends PureComponent<Props> {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <DialogTitle id="form-dialog-title">Add a new item</DialogTitle>
           <DialogContent>
             <Grid container spacing={24}>
